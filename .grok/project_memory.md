@@ -1,0 +1,2 @@
+- Projeto EBookall / RecuperaJogo (https://github.com/pedrofsneto33/EBookall, produção https://recuperajogo.vercel.app): gerador de petições para bets (autoexclusão/ludopatia). [2026-09-14]
+- Correções enviadas ao main: Checkout Session + webhook upsert + ensure subscription + README/.env.example. [2026-09-14]

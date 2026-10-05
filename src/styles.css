@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f6f3ec;
+  --color-surface: #fffcf6;
+  --color-fg: #1c2430;
+  --color-muted: #5c6570;
+  --color-subtle: #8a918a;
+  --color-primary: #2f4a42;
+  --color-primary-fg: #f6f3ec;
+  --color-border: #d9d3c6;
+  --color-warn: #7a5a2a;
+  --color-warn-bg: #f4ead6;
+  --color-danger: #8b3a32;
+  --color-ok: #2f5d45;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+/* Campanha (home): tinta, tipo grosso, um acento claro. Gerador/PDF ficam no papel. */
+.campaign {
+  --color-bg: #0c0c0d;
+  --color-surface: #161618;
+  --color-fg: #f3efe6;
+  --color-muted: #9c9890;
+  --color-subtle: #6e6b66;
+  --color-primary: #f3efe6;
+  --color-primary-fg: #0c0c0d;
+  --color-border: #2c2c2e;
+  --color-warn: #d7c4a0;
+  --color-warn-bg: #2a2418;
+  --color-danger: #c45c4e;
+  --color-ok: #7d9b88;
+  --font-display: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes stamp-in {
+  0% { opacity: 0; transform: scale(1.35) rotate(-12deg); }
+  70% { opacity: 1; transform: scale(0.96) rotate(-8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-8deg); }
+}
+
+@keyframes reel {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.stamp-slam {
+  animation: stamp-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reel-spin {
+  animation: reel 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reel-spin { animation: none; }
+}
+
+.paper-island {
+  --color-bg: #f6f3ec;
+  --color-surface: #fffcf6;
+  --color-fg: #1c2430;
+  --color-muted: #5c6570;
+  --color-primary: #2f4a42;
+  --color-primary-fg: #f6f3ec;
+  --color-border: #d9d3c6;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.paper-demo {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.redact {
+  user-select: none;
+}
+
+@media print {
+  header, nav, footer, .no-print { display: none !important; }
+  body { background: white; color: black; }
+  .print-sheet { box-shadow: none !important; border: none !important; }
+}
